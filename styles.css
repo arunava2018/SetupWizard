@@ -1,0 +1,423 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9fafb;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .header-links a {
+    margin-left: 1rem;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  
+  .container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  h2 span {
+    font-weight: normal;
+    font-size: 0.9rem;
+    color: #6b7280;
+  }
+  
+  .content {
+    text-align: center;
+  }
+  
+  .content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  
+  .content p {
+    color: gray;
+    text-align: center;
+    max-width: 80%;
+    margin: auto;
+  }
+  .content .logo{
+    color: blue;
+    font-size: 1.5rem;
+  }
+  
+  .options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .option {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 80%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .option:hover {
+    border-color: #3b82f6;
+    background-color: #f3f4f6;
+    transform: scale(1.02);  /* Slightly scale up the text */
+  }
+  
+  
+  .option input {
+    margin-right: 0.5rem;
+  }
+  
+  .detected-os {
+    font-size: 0.9rem;
+    color: #4b5563;
+  }
+  
+  .navigation {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+  
+  .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #3b82f6;
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #2563eb;
+  }
+  /* Add styles for responsive design */
+@media (max-width: 768px) {
+    .header {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  
+    .header-links {
+      display: none; /* Hide the links by default */
+      flex-direction: column;
+      width: 100%;
+      background-color: #fff;
+      padding: 1rem;
+      border-top: 1px solid #ddd;
+    }
+  
+    .header-links a {
+      margin: 0.5rem 0;
+    }
+  
+    .hamburger {
+      display: block; /* Show the hamburger icon */
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+  
+    .header-links.active {
+      display: flex; /* Show links when active */
+    }
+  }
+  
+  /* Default styles for larger screens */
+  .hamburger {
+    display: none; /* Hide hamburger on larger screens */
+  }
+
+
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9fafb;
+  }
+  
+  .tools-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .tools-header .tools-icon {
+    font-size: 2rem;
+    color: #3b82f6;
+  }
+  
+  .tools-header .tools-title {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+    color: #111827;
+  }
+  
+  .tools-header .tools-subtitle {
+    font-size: 1rem;
+    color: #6b7280;
+  }
+  
+  .tools-search-bar .tools-search-input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    margin: 1rem 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .tools-list {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  
+  .tools-item {
+    display: flex;
+    /* justify-content: space-between;
+    align-items: center; */
+    margin-bottom: 0.75rem;
+  }
+  
+  .tools-item span {
+    font-size: 1rem;
+  }
+  
+  .tools-item i {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-left:5px;
+  }
+  
+  .tools-add {
+    margin: 1rem 0;
+  }
+  
+  .tools-add-btn {
+    background-color: #f3f4f6;
+    color: #3b82f6;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .tools-add-btn:hover {
+    background-color: #e5e7eb;
+  }
+  
+  .tools-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .tools-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .tools-previous {
+    background-color: #2196F3;
+  }
+  
+  .tools-next {
+    background-color: #4CAF50;
+  }
+  
+  .tools-btn:hover {
+    opacity: 0.8;
+  }
+  /* General Styles */
+.tools-container {
+  width: 100%;
+  max-width: 800px; /* Set a max width to control the container's size */
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Ensure padding does not affect overall width */
+}
+
+/* Header Section */
+.tools-header {
+  text-align: center;
+}
+
+.tools-icon {
+  font-size: 30px;
+  color: #4CAF50;
+}
+
+.tools-title {
+  font-size: 24px;
+  color: #333;
+  margin: 10px 0;
+}
+
+.tools-subtitle {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Tools List */
+.tools-list {
+  margin-bottom: 20px;
+}
+
+.tools-item {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  font-size: 16px;
+  color: #333;
+  position: relative; /* To position tooltip */
+}
+
+.tools-item input {
+  margin-right: 10px;
+}
+
+.info-icon {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.info-tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 200px;
+  display: none;
+  z-index: 10;
+}
+
+.tools-item:hover .info-tooltip {
+  display: block;
+}
+
+/* Add Custom Tool Button */
+.tools-add {
+  text-align: center;
+}
+
+.tools-add-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.tools-add-btn:hover {
+  background-color: #1976D2;
+}
+
+/* Navigation Buttons */
+.tools-navigation {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  margin-top: 20px;
+}
+
+.tools-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  width: 100%; /* Full-width on small screens */
+  margin: 5px 0; /* Add margin between buttons */
+}
+
+.tools-previous {
+  background-color: #2196F3;
+}
+
+.tools-next {
+  background-color: #4CAF50;
+}
+
+.tools-btn:hover {
+  opacity: 0.8;
+}
+
+/* Media Queries for Responsiveness */
+@media (min-width: 768px) {
+  .tools-btn {
+    width: auto; /* Reset width to auto on larger screens */
+  }
+  
+  .tools-navigation {
+    flex-wrap: nowrap; /* Prevent wrapping of buttons on large screens */
+  }
+}
+
+/* Footer (Optional, for additional information) */
+footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #777;
+}

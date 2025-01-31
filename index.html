@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SetupWizard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="logo">SetupWizard<i class="logo fa-solid fa-laptop"></i></h1>
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+        <div class="header-links">
+            <a href="https://github.com" target="_blank" class="github-link">
+                <i class="fa-brands fa-github"></i> GitHub
+            </a>
+            <a href="https://twitter.com" target="_blank" class="twitter-link">
+                <i class="fa-brands fa-twitter"></i> Twitter
+            </a>
+            <a href="#" class="tweet-link">
+                <i class="fa fa-share"></i> Tweet about us
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Welcome to SetupWizard <span></span></h2>
+        <div class="content">
+            <i class="logo fa-solid fa-laptop"></i>
+            <p>Our goal is to assist you for quick set up essential development tools with easy installation scripts.
+            </p>
+            <h3>Choose Your Operating System</h3>
+            <p>Let's start by selecting your operating system to ensure you get the right installation commands.</p>
+            <div class="options" id="options">
+                <label class="option" id="Linux">
+                    <input type="radio" name="os" value="Linux">
+                    <span>Linux</span>
+                </label>
+                <label class="option" id="Macos">
+                    <input type="radio" name="os" value="Macos">
+                    <span>Macos</span>
+                </label>
+                <label class="option" id="Windows">
+                    <input type="radio" name="os" value="Windows">
+                    <span>Windows</span>
+                </label>
+            </div>
+            <p class="detected-os" id="os-detect"></p>
+        </div>
+        <div class="navigation">
+            <button class="btn next" id="next-btn">Next →</button>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>

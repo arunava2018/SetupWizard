@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation Script UI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+        .icon {
+            font-size: 40px;
+            color: #007bff;
+        }
+
+        h2 {
+            margin: 10px 0;
+        }
+
+        p {
+            color: gray;
+        }
+
+        .script-box {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: left;
+            font-family: monospace;
+            position: relative;
+            min-height: 50px;
+        }
+
+        .tools-btn {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .button {
+            flex: 1;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            color: white;
+        }
+
+        #copy-all-btn {
+            background-color: #4CAF50;
+        }
+
+
+        #script-previous-btn {
+            background-color: blue;
+        }
+
+        #script-previous-btn:hover {
+            background-color: #003f7f;
+        }
+
+        @media screen and (max-width: 768px) {
+            .tools-btn {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="icon">&gt;_</div>
+        <h2>Your Installation Script</h2>
+        <p>Here's your customized installation script. Copy and run it in your terminal.</p>
+        <div class="script-box">
+        </div>
+        <div class="tools-btn">
+            <button id="script-previous-btn" class="button">← Previous</button>
+            <button id="copy-all-btn" class="button"><i class="fa fa-copy"></i> Copy All</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

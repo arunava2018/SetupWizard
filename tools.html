@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Tools</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="tools-container">
+    <header class="tools-header">
+      <i class="fa-solid fa-download tools-icon"></i>
+      <h2 class="tools-title">Select Your Tools</h2>
+      <p class="tools-subtitle">Choose the development tools you want to install on your system.</p>
+    </header>
+    <main class="tools-main">
+      <div class="tools-list">
+        <label class="tools-item">
+          <input type="checkbox">
+          <span>Node.js</span>
+          <i class="fa-solid fa-circle-info info-icon"></i>
+          <div class="info-tooltip">Node.js is a JavaScript runtime built on Chrome's V8 engine.</div>
+        </label>
+        <label class="tools-item">
+          <input type="checkbox">
+          <span>Git</span>
+          <i class="fa-solid fa-circle-info info-icon"></i>
+          <div class="info-tooltip">Git is a version control system to track changes in source code.</div>
+        </label>
+        <label class="tools-item">
+          <input type="checkbox">
+          <span>GitHub CLI</span>
+          <i class="fa-solid fa-circle-info info-icon"></i>
+          <div class="info-tooltip">GitHub CLI is a command-line tool for GitHub.</div>
+        </label>
+        <label class="tools-item">
+          <input type="checkbox">
+          <span>Docker</span>
+          <i class="fa-solid fa-circle-info info-icon"></i>
+          <div class="info-tooltip">Docker is a platform for developing, shipping, and running applications in containers.</div>
+        </label>
+        <label class="tools-item">
+          <input type="checkbox">
+          <span>Python</span>
+          <i class="fa-solid fa-circle-info info-icon"></i>
+          <div class="info-tooltip">Python is a popular programming language for web development and data science.</div>
+        </label>
+        <label class="tools-item">
+          <input type="checkbox">
+          <span>Visual Studio Code</span>
+          <i class="fa-solid fa-circle-info info-icon"></i>
+          <div class="info-tooltip">Visual Studio Code is a source code editor developed by Microsoft.</div>
+        </label>
+        <label class="tools-item">
+          <input type="checkbox">
+          <span>Rust</span>
+          <i class="fa-solid fa-circle-info info-icon"></i>
+          <div class="info-tooltip">Rust is a systems programming language focused on safety and performance.</div>
+        </label>
+        <label class="tools-item">
+          <input type="checkbox">
+          <span>Go</span>
+          <i class="fa-solid fa-circle-info info-icon"></i>
+          <div class="info-tooltip">Go is a statically typed, compiled programming language designed for simplicity.</div>
+        </label>
+        <label class="tools-item">
+          <input type="checkbox">
+          <span>Postman</span>
+          <i class="fa-solid fa-circle-info info-icon"></i>
+          <div class="info-tooltip">Postman is a tool for API testing and development.</div>
+        </label>
+        <label class="tools-item">
+          <input type="checkbox">
+          <span>VLC Media Player</span>
+          <i class="fa-solid fa-circle-info info-icon"></i>
+          <div class="info-tooltip">VLC is a free and open-source multimedia player that supports most audio and video formats.</div>
+        </label>
+        <label class="tools-item">
+          <input type="checkbox">
+          <span>Slack</span>
+          <i class="fa-solid fa-circle-info info-icon"></i>
+          <div class="info-tooltip">Slack is a messaging app for teams, used for communication and collaboration.</div>
+        </label>
+        <label class="tools-item">
+          <input type="checkbox">
+          <span>Notepad++</span>
+          <i class="fa-solid fa-circle-info info-icon"></i>
+          <div class="info-tooltip">Notepad++ is a free source code editor and Notepad replacement with advanced features.</div>
+        </label>
+        <label class="tools-item">
+          <input type="checkbox">
+          <span>MongoDB</span>
+          <i class="fa-solid fa-circle-info info-icon"></i>
+          <div class="info-tooltip">MongoDB is a NoSQL database known for high performance and scalability.</div>
+        </label>
+        <label class="tools-item">
+          <input type="checkbox">
+          <span>IntelliJ IDEA</span>
+          <i class="fa-solid fa-circle-info info-icon"></i>
+          <div class="info-tooltip">IntelliJ IDEA is an IDE for Java, Kotlin, and other programming languages, developed by JetBrains.</div>
+        </label>        
+    </div>
+      <div class="tools-navigation">
+        <button class="tools-btn tools-previous" id="previous-btn">← Previous</button>
+        <button class="tools-btn tools-next" id="generate-btn">Generate Script →</button>
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
