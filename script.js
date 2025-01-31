@@ -5,6 +5,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const previousBtn = document.getElementById("previous-btn");
   const generateBtn = document.getElementById("generate-btn");
   const scriptBox = document.querySelector(".script-box");
+  const hamburger = document.querySelector(".hamburger");
+  const headerLinks = document.querySelector(".header-links");
+
+  // Toggle menu for mobile
+  if (hamburger) {
+    hamburger.addEventListener("click", () => {
+      headerLinks.classList.toggle("active");
+    });
+  }
 
   // Installation commands for different OS
   const installationCommands = {
@@ -58,128 +67,103 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
 
+  // Detect OS and set initial state
   let detectedOS = "Windows";
-  let selectedOS = localStorage.getItem("selectedOS") || "Windows";
-
-  // Detect the OS based on user agent
   if (navigator.userAgent.indexOf("Win") !== -1) detectedOS = "Windows";
   if (navigator.userAgent.indexOf("Mac") !== -1) detectedOS = "Macos";
   if (navigator.userAgent.indexOf("Linux") !== -1) detectedOS = "Linux";
 
-  if (window.location.href.includes("index.html")) {
+  // Get selected OS from localStorage or use detected OS
+  let selectedOS = localStorage.getItem("selectedOS") || detectedOS;
+
+  // Update OS text if on index page
+  if (osText) {
     osText.innerHTML = `Detected OS: ${detectedOS}`;
   }
 
-  // Update the OS selection when user selects a different OS
+  // Set initial radio button state and add click handlers
   radios.forEach((radio) => {
-    if (radio.value === detectedOS) {
+    if (radio.value === selectedOS) {
       radio.checked = true;
     }
-    radio.addEventListener("click", (event) => {
-      selectedOS = `${event.target.value}`;
-      osText.innerHTML = `Selected OS: ${event.target.value}`;
+    radio.addEventListener("change", (event) => {
+      selectedOS = event.target.value;
+      if (osText) {
+        osText.innerHTML = `Selected OS: ${selectedOS}`;
+      }
       localStorage.setItem("selectedOS", selectedOS);
     });
   });
 
-  // Event Listener for Next button on index.html
-  if (window.location.href.includes("index.html")) {
+  // Enable Next button and add click handler
+  if (nextBtn) {
+    nextBtn.style.pointerEvents = "auto";
+    nextBtn.style.opacity = "1";
     nextBtn.addEventListener("click", () => {
       window.location.href = "tools.html";
     });
   }
 
-  // Event Listener for Previous button on both index and tools pages
+  // Handle Previous button
   if (previousBtn) {
     previousBtn.addEventListener("click", () => {
-      if (window.location.href.includes("tools.html"))
-        window.location.href = "index.html";
+      window.history.back();
     });
   }
 
-  // Event Listener for Generate Script button on tools.html
+  // Handle Generate Script button
   if (generateBtn) {
     generateBtn.addEventListener("click", () => {
-      const selectedTools = document.querySelectorAll(
-        ".tools-item input:checked"
-      );
+      const selectedTools = document.querySelectorAll(".tools-item input:checked");
       const generatedScripts = {};
 
       selectedTools.forEach((tool) => {
         const toolName = tool.nextElementSibling.textContent.trim();
         if (installationCommands[selectedOS][toolName]) {
-          generatedScripts[toolName] =
-            installationCommands[selectedOS][toolName];
+          generatedScripts[toolName] = installationCommands[selectedOS][toolName];
         }
       });
 
-      // Save generated scripts in localStorage
-      localStorage.setItem(
-        "generatedScripts",
-        JSON.stringify(generatedScripts)
-      );
-
-      // Redirect to scripts.html
+      localStorage.setItem("generatedScripts", JSON.stringify(generatedScripts));
       window.location.href = "scripts.html";
     });
   }
 
-  // Scripts page - Retrieve and display scripts
+  // Handle Scripts page
   if (window.location.href.includes("scripts.html")) {
-    const generatedScripts = JSON.parse(
-      localStorage.getItem("generatedScripts")
-    );
-
-    // Check if scripts exist in localStorage
     const copyAllBtn = document.getElementById("copy-all-btn");
     const scriptBox = document.querySelector(".script-box");
+    const generatedScripts = JSON.parse(localStorage.getItem("generatedScripts"));
 
     if (generatedScripts && Object.keys(generatedScripts).length > 0) {
-      // Create a container for all scripts and append it to the script box
+      scriptBox.innerHTML = "";
       let allScripts = "";
-      for (const [tool, script] of Object.entries(generatedScripts)) {
-        const container = document.createElement("div");
-        container.classList.add("script-item");
-        container.innerHTML = `
-          <strong></strong> <code>${script}</code>
+
+      Object.entries(generatedScripts).forEach(([tool, script]) => {
+        const scriptItem = document.createElement("div");
+        scriptItem.classList.add("script-item");
+        scriptItem.innerHTML = `
+          <strong>${tool}:</strong> <code>${script}</code>
           <br>
         `;
-        scriptBox.appendChild(container);
-
-        // Accumulate the scripts to be copied
+        scriptBox.appendChild(scriptItem);
         allScripts += `${tool}: ${script}\n`;
-      }
+      });
 
-      // Copy all scripts when the "Copy All" button is clicked
       if (copyAllBtn) {
         copyAllBtn.addEventListener("click", () => {
-          // Create a temporary textarea to copy all scripts
-          const tempTextArea = document.createElement("textarea");
-          tempTextArea.value = allScripts; // Add all the scripts to the textarea
-          document.body.appendChild(tempTextArea);
-          tempTextArea.select();
-          document.execCommand("copy");
-          document.body.removeChild(tempTextArea);
-
-          // Provide feedback (you can change the button icon to a checkmark, for example)
-          copyAllBtn.innerHTML = '<i class="fa fa-check"></i> All Copied!';
-
-          // Reset button text after a short delay
-          setTimeout(() => {
-            copyAllBtn.innerHTML = '<i class="fa fa-copy"></i> Copy All';
-          }, 2000);
+          navigator.clipboard.writeText(allScripts).then(() => {
+            copyAllBtn.innerHTML = '<i class="fa fa-check"></i> Copied!';
+            setTimeout(() => {
+              copyAllBtn.innerHTML = '<i class="fa fa-copy"></i> Copy All';
+            }, 2000);
+          }).catch(err => {
+            console.error('Failed to copy text: ', err);
+          });
         });
       }
     } else {
-      scriptBox.innerHTML =
-        "<p>No installation scripts found. Please go back and select tools to install.</p>";
-    }
-
-    const previousBtn = document.getElementById("script-previous-btn");
-    if (previousBtn) {
-      previousBtn.addEventListener("click", () => {
-        window.location.href = "tools.html";
-      });
+      scriptBox.innerHTML = "<p>No installation scripts found. Please go back and select tools to install.</p>";
     }
   }
 });
